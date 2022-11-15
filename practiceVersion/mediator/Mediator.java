@@ -19,9 +19,7 @@ public class Mediator implements IMediator {
     public void registerColleagues(IColleague colleague1, IColleague colleague2) {}
 
     @Override
-    public IColleague getCurrentlyTransmitting() {
-        return this.currentlyTransmitting;
-    }
+    public IColleague getCurrentlyTransmitting() {}
 
     @Override
     public void attemptTransmit(IColleague colleague) {}
