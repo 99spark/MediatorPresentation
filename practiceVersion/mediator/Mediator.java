@@ -14,34 +14,22 @@ public class Mediator implements IMediator {
     IColleague colleague1;
     IColleague colleague2;
     IColleague currentlyTransmitting;
+
     @Override
-    public void registerColleagues(IColleague colleague1, IColleague colleague2) {
-        this.colleague1 = colleague1;
-        this.colleague2 = colleague2;}
+    public void registerColleagues(IColleague colleague1, IColleague colleague2) {}
+
     @Override
     public IColleague getCurrentlyTransmitting() {
         return this.currentlyTransmitting;
     }
+
     @Override
-    public void attemptTransmit(IColleague colleague) {
-        if (this.currentlyTransmitting == null || this.currentlyTransmitting == colleague) {
-            startTransmission(colleague);
-        } else {
-            System.out.println(colleague.getName() + ": Cannot transmit, other colleague transmitting.");
-        }}
-    private void startTransmission(IColleague colleague) {
-        this.currentlyTransmitting = colleague;
-        colleague.startTransmit();}
+    public void attemptTransmit(IColleague colleague) {}
+
+    private void startTransmission(IColleague colleague) {}
+
     @Override
-    public void stopTransmit(IColleague colleague) {
-        if (this.currentlyTransmitting == colleague) {
-            IColleague other = this.currentlyTransmitting;
-            this.currentlyTransmitting = null;
-            other.stopTransmit();
-        } else {
-            System.out.println(colleague.getName() + ": Cannot stop transmission, other colleague transmitting.");
-        }
-    }
+    public void stopTransmit(IColleague colleague) {}
 
     /**
      * Called by ColleagueAdvanced to give it special permission to stop transmission of other Colleague,
@@ -49,10 +37,5 @@ public class Mediator implements IMediator {
      * @param colleagueAdvanced ColleagueAdvanced
      */
     @Override
-    public void overrideTransmit(ColleagueAdvanced colleagueAdvanced) {
-        IColleague other = this.currentlyTransmitting;
-        this.currentlyTransmitting = colleagueAdvanced;
-        other.stopTransmit();
-        this.currentlyTransmitting.startTransmit();
-    }
+    public void overrideTransmit(ColleagueAdvanced colleagueAdvanced) {}
 }
