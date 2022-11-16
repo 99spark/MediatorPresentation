@@ -10,7 +10,7 @@ import mediator.IMediator;
  * @author Alex Fischer, Kevin Price, Cameron Zipp
  * @version 1.0
  */
-public class ColleagueAdvanced extends Colleague implements IColleague {
+public class ColleagueAdvanced extends Colleague {
 
     /**
      * Constructor
@@ -18,14 +18,11 @@ public class ColleagueAdvanced extends Colleague implements IColleague {
      * @param name String, name of this Colleague
      */
     public ColleagueAdvanced(IMediator mediator, String name) {
-        super(mediator, name);
     }
 
     /**
      * Override the transmission of any other mediator and start a transmission
      */
     public void overrideColleagueAndTransmit() {
-        System.out.println("Advanced Colleague " + getName() + " is overriding other Colleague");
-        getMediator().overrideTransmit(this);
     }
 }
